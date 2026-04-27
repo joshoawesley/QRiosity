@@ -20,29 +20,37 @@ export default function LoginPage() {
         <img
           src="/logo.png"
           alt="QRiosity background"
-          className="w-[1150px] max-w-none opacity-25 blur-[3px]"
+          className="w-[1150px] max-w-none opacity-45 blur-[3px]"
         />
       </div>
 
-      {/* Dark overlay for premium depth */}
+      {/* Premium overlay */}
       <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/80 via-black/25 to-black/80" />
 
-      {/* Top login bar */}
       <section className="relative z-10 flex min-h-screen flex-col px-10 py-10">
         <div className="mx-auto w-full max-w-6xl">
-          <div className="mb-8 flex items-center justify-between">
-            <div>
-              <h1 className="text-3xl font-black tracking-[0.18em]">
-                <span className="text-green-500">QR</span>iosity
-              </h1>
-              <p className="mt-1 text-xs tracking-[0.35em] text-slate-400">
-                VOICES HEARD. SOLUTIONS EARNED.
-              </p>
-            </div>
+          {/* Brand */}
+          <div className="mb-8">
+            <h1 className="text-3xl font-black tracking-[0.18em]">
+              <span className="text-green-500">QR</span>iosity
+            </h1>
+            <p className="mt-1 text-xs tracking-[0.35em] text-slate-400">
+              VOICES HEARD : SOLUTIONS EARNED
+            </p>
           </div>
 
-          <form onSubmit={handleLogin} className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl">
+          {/* Trust cue */}
+          <p className="mb-4 text-xs tracking-[0.3em] text-green-400">
+            SECURE CLIENT PORTAL
+          </p>
+
+          {/* Login panel */}
+          <form
+            onSubmit={handleLogin}
+            className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl"
+          >
             <div className="grid gap-5 md:grid-cols-[1fr_1fr_auto] md:items-start">
+              {/* Username */}
               <div>
                 <label className="mb-2 block text-sm font-bold text-white">
                   Username
@@ -51,7 +59,7 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   type="text"
-                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition focus:border-green-400 focus:ring-4 focus:ring-green-400/20"
+                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:border-green-400 focus:ring-4 focus:ring-green-400/30"
                 />
 
                 <button
@@ -62,6 +70,7 @@ export default function LoginPage() {
                 </button>
               </div>
 
+              {/* Password */}
               <div>
                 <label className="mb-2 block text-sm font-bold text-white">
                   Password
@@ -70,13 +79,14 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
-                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition focus:border-green-400 focus:ring-4 focus:ring-green-400/20"
+                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:border-green-400 focus:ring-4 focus:ring-green-400/30"
                 />
               </div>
 
+              {/* Login Button */}
               <button
                 type="submit"
-                className="mt-7 h-14 rounded-full border-2 border-white px-12 text-sm font-black tracking-[0.25em] text-white transition hover:bg-white hover:text-black"
+                className="mt-7 h-14 rounded-full border-2 border-white px-12 text-sm font-black tracking-[0.25em] text-white transition-all duration-200 hover:bg-white hover:text-black active:scale-95"
               >
                 LOG IN
               </button>
@@ -84,6 +94,7 @@ export default function LoginPage() {
           </form>
         </div>
 
+        {/* Footer line */}
         <div className="flex flex-1 items-end justify-center pb-10">
           <p className="text-xs tracking-[0.3em] text-white/35">
             ENTERPRISE CUSTOMER EXPERIENCE INTELLIGENCE
