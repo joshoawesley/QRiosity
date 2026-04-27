@@ -14,8 +14,16 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#111111] text-white">
-      <section className="flex min-h-screen flex-col items-center justify-center px-8">
+    <main className="relative min-h-screen bg-[#111111] text-white overflow-hidden">
+      {/* Background Logo */}
+      <div className="absolute inset-0 z-0 flex items-center justify-center">
+        <img
+          src="/logo.png"
+          alt="background"
+          className="w-[900px] max-w-none opacity-20 blur-sm"
+        />
+      </div>
+      <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8">
         
         {/* LOGO */}
         <div className="mb-10 flex w-full justify-center">
