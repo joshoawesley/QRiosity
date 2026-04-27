@@ -59,7 +59,7 @@ export default function LoginPage() {
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   type="text"
-                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:border-green-400 focus:ring-4 focus:ring-green-400/30"
+                  className="h-14 w-full rounded-full bg-white/90 backdrop-blur-sm px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:ring-4 focus:ring-green-400/30"
                 />
 
                 <button
@@ -79,7 +79,7 @@ export default function LoginPage() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   type="password"
-                  className="h-14 w-full rounded-full border border-white/20 bg-white/95 px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:border-green-400 focus:ring-4 focus:ring-green-400/30"
+                  className="h-14 w-full rounded-full bg-white/90 backdrop-blur-sm px-6 text-slate-950 outline-none transition-all duration-200 focus:scale-[1.01] focus:ring-4 focus:ring-green-400/30"
                 />
               </div>
 
