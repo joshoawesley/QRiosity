@@ -1,28 +1,30 @@
+const metrics = [
+  { label: "NPS", value: "+62", detail: "Promoter strength", trend: "+8% this month" },
+  { label: "CSAT", value: "4.7", detail: "Average satisfaction", trend: "+4% this month" },
+  { label: "CES", value: "2.1", detail: "Customer effort", trend: "Lower is better" },
+  { label: "Responses", value: "248", detail: "Last 30 days", trend: "+31 new" },
+];
+
+const nav = ["Dashboard", "Feedback", "Analytics", "Alerts", "Locations", "Reports", "Settings"];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-slate-100 text-slate-900">
-      <div className="flex">
-        {/* Sidebar */}
-        <aside className="hidden min-h-screen w-64 bg-slate-950 p-6 text-white md:block">
-          <h1 className="text-2xl font-bold">QRiosity</h1>
-          <p className="mt-1 text-sm text-slate-400">Voices Heard. Solutions Earned.</p>
+    <main className="min-h-screen bg-[#F6F8FB] text-slate-900">
+      <div className="flex min-h-screen">
+        <aside className="hidden w-72 bg-white px-6 py-8 shadow-sm lg:block">
+          <div className="mb-10">
+            <h1 className="text-3xl font-bold tracking-tight">QRiosity</h1>
+            <p className="mt-1 text-sm text-slate-500">Voices Heard. Solutions Earned.</p>
+          </div>
 
-          <nav className="mt-10 space-y-3 text-sm">
-            {[
-              "Dashboard",
-              "Feedback",
-              "Analytics",
-              "Alerts",
-              "Locations",
-              "Reports",
-              "Settings",
-            ].map((item) => (
+          <nav className="space-y-2">
+            {nav.map((item) => (
               <div
                 key={item}
-                className={`rounded-xl px-4 py-3 ${
+                className={`rounded-2xl px-4 py-3 text-sm font-medium ${
                   item === "Dashboard"
-                    ? "bg-white text-slate-950"
-                    : "text-slate-300 hover:bg-slate-800"
+                    ? "bg-slate-900 text-white"
+                    : "text-slate-600 hover:bg-slate-100"
                 }`}
               >
                 {item}
@@ -31,138 +33,120 @@ export default function Home() {
           </nav>
         </aside>
 
-        {/* Main Content */}
-        <section className="flex-1 p-6 md:p-10">
-          <div className="mb-8 flex flex-col justify-between gap-4 md:flex-row md:items-center">
+        <section className="flex-1 px-6 py-8 lg:px-10">
+          <header className="mb-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <h2 className="text-3xl font-bold">Executive Overview</h2>
-              <p className="mt-1 text-slate-600">
-                Real-time customer experience insights across your service organization.
+              <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+                Client Portal
+              </p>
+              <h2 className="mt-1 text-4xl font-bold tracking-tight">Executive Overview</h2>
+              <p className="mt-2 text-slate-600">
+                Monitor customer sentiment, service quality, and action items in one place.
               </p>
             </div>
 
-            <button className="rounded-xl bg-slate-950 px-5 py-3 text-sm font-semibold text-white">
-              Export Report
-            </button>
-          </div>
+            <div className="flex gap-3">
+              <button className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-semibold shadow-sm">
+                Last 30 Days
+              </button>
+              <button className="rounded-2xl bg-slate-900 px-5 py-3 text-sm font-semibold text-white shadow-sm">
+                Export Report
+              </button>
+            </div>
+          </header>
 
-          {/* KPI Cards */}
-          <div className="grid gap-5 md:grid-cols-5">
-            <KpiCard title="NPS" value="+62" note="Strong loyalty" />
-            <KpiCard title="CSAT" value="4.7/5" note="Customer satisfaction" />
-            <KpiCard title="CES" value="2.1" note="Lower is better" />
-            <KpiCard title="Responses" value="248" note="Last 30 days" />
-            <KpiCard title="Open Alerts" value="6" note="Needs attention" />
-          </div>
+          <section className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {metrics.map((metric) => (
+              <div key={metric.label} className="rounded-3xl bg-white p-6 shadow-sm">
+                <p className="text-sm font-medium text-slate-500">{metric.label}</p>
+                <div className="mt-4 flex items-end justify-between">
+                  <p className="text-4xl font-bold">{metric.value}</p>
+                  <span className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                    {metric.trend}
+                  </span>
+                </div>
+                <p className="mt-3 text-sm text-slate-500">{metric.detail}</p>
+              </div>
+            ))}
+          </section>
 
-          {/* Middle Section */}
-          <div className="mt-8 grid gap-6 lg:grid-cols-3">
-            <div className="rounded-2xl bg-white p-6 shadow-sm lg:col-span-2">
-              <h3 className="text-xl font-semibold">Customer Experience Trend</h3>
-              <p className="mt-1 text-sm text-slate-500">NPS, CSAT, and response volume over time</p>
+          <section className="mt-8 grid gap-6 xl:grid-cols-3">
+            <div className="rounded-3xl bg-white p-6 shadow-sm xl:col-span-2">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold">Customer Experience Trends</h3>
+                  <p className="mt-1 text-sm text-slate-500">NPS, CSAT, CES, and response volume</p>
+                </div>
+                <button className="rounded-xl bg-slate-100 px-4 py-2 text-sm font-semibold">
+                  View Analytics
+                </button>
+              </div>
 
-              <div className="mt-8 flex h-64 items-center justify-center rounded-xl border border-dashed border-slate-300 bg-slate-50 text-slate-500">
-                Chart placeholder
+              <div className="mt-8 flex h-72 items-center justify-center rounded-3xl border border-dashed border-slate-300 bg-slate-50">
+                <div className="text-center">
+                  <p className="text-lg font-semibold text-slate-700">Chart Area</p>
+                  <p className="mt-1 text-sm text-slate-500">Live trend graph will appear here</p>
+                </div>
               </div>
             </div>
 
-            <div className="rounded-2xl bg-white p-6 shadow-sm">
-              <h3 className="text-xl font-semibold">AI Insights</h3>
-              <div className="mt-5 space-y-4 text-sm text-slate-700">
-                <Insight text="Scheduling delays are the most common negative feedback theme." />
-                <Insight text="Technician professionalism is consistently rated highly." />
-                <Insight text="Communication before arrival is trending as an improvement opportunity." />
+            <div className="rounded-3xl bg-slate-900 p-6 text-white shadow-sm">
+              <h3 className="text-xl font-bold">AI Insights</h3>
+              <p className="mt-1 text-sm text-slate-300">Priority themes from recent feedback</p>
+
+              <div className="mt-6 space-y-4">
+                {[
+                  "Scheduling delays are appearing in multiple negative comments.",
+                  "Technician professionalism is the strongest positive driver.",
+                  "Customers want clearer communication before arrival windows.",
+                ].map((text) => (
+                  <div key={text} className="rounded-2xl bg-white/10 p-4 text-sm leading-6">
+                    {text}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Recent Alerts */}
-          <div className="mt-8 rounded-2xl bg-white p-6 shadow-sm">
-            <div className="mb-5 flex items-center justify-between">
-              <h3 className="text-xl font-semibold">Recent Alerts</h3>
-              <button className="text-sm font-semibold text-slate-700">View All</button>
+          <section className="mt-8 grid gap-6 xl:grid-cols-3">
+            <div className="rounded-3xl bg-white p-6 shadow-sm xl:col-span-2">
+              <h3 className="text-xl font-bold">Recent Feedback</h3>
+
+              <div className="mt-5 space-y-4">
+                {[
+                  ["Northside Lab", "Technician was professional and explained the repair clearly.", "CSAT 5/5"],
+                  ["West Region Account", "Delayed arrival with limited communication.", "NPS 4"],
+                  ["Anonymous Customer", "Service was completed, but follow-up took longer than expected.", "CES 3.8"],
+                ].map(([name, comment, score]) => (
+                  <div key={name} className="rounded-2xl border border-slate-100 p-4">
+                    <div className="flex items-center justify-between gap-4">
+                      <p className="font-semibold">{name}</p>
+                      <span className="rounded-full bg-slate-100 px-3 py-1 text-xs font-semibold">
+                        {score}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-sm text-slate-600">{comment}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="space-y-4">
-              <AlertRow
-                customer="Anonymous Customer"
-                issue="Low CSAT score tied to delayed follow-up."
-                score="CSAT 2/5"
-                status="Open"
-              />
-              <AlertRow
-                customer="Northside Lab"
-                issue="Customer mentioned unclear arrival communication."
-                score="NPS 4"
-                status="Open"
-              />
-              <AlertRow
-                customer="West Region Account"
-                issue="Positive feedback: technician was professional and thorough."
-                score="CSAT 5/5"
-                status="Resolved"
-              />
+            <div className="rounded-3xl bg-white p-6 shadow-sm">
+              <h3 className="text-xl font-bold">Open Alerts</h3>
+              <p className="mt-1 text-sm text-slate-500">Issues needing attention</p>
+
+              <div className="mt-6 space-y-4">
+                {["Low CSAT", "Detractor Response", "Negative Sentiment"].map((alert) => (
+                  <div key={alert} className="rounded-2xl border border-red-100 bg-red-50 p-4">
+                    <p className="font-semibold text-red-800">{alert}</p>
+                    <p className="mt-1 text-sm text-red-700">Follow-up recommended</p>
+                  </div>
+                ))}
+              </div>
             </div>
-          </div>
+          </section>
         </section>
       </div>
     </main>
-  );
-}
-
-function KpiCard({
-  title,
-  value,
-  note,
-}: {
-  title: string;
-  value: string;
-  note: string;
-}) {
-  return (
-    <div className="rounded-2xl bg-white p-5 shadow-sm">
-      <p className="text-sm font-medium text-slate-500">{title}</p>
-      <p className="mt-3 text-3xl font-bold">{value}</p>
-      <p className="mt-2 text-sm text-slate-500">{note}</p>
-    </div>
-  );
-}
-
-function Insight({ text }: { text: string }) {
-  return (
-    <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
-      {text}
-    </div>
-  );
-}
-
-function AlertRow({
-  customer,
-  issue,
-  score,
-  status,
-}: {
-  customer: string;
-  issue: string;
-  score: string;
-  status: string;
-}) {
-  return (
-    <div className="grid gap-3 rounded-xl border border-slate-200 p-4 md:grid-cols-4 md:items-center">
-      <div className="font-semibold">{customer}</div>
-      <div className="md:col-span-2 text-sm text-slate-600">{issue}</div>
-      <div className="flex items-center justify-between gap-3">
-        <span className="text-sm font-semibold">{score}</span>
-        <span
-          className={`rounded-full px-3 py-1 text-xs font-semibold ${
-            status === "Open"
-              ? "bg-red-100 text-red-700"
-              : "bg-green-100 text-green-700"
-          }`}
-        >
-          {status}
-        </span>
-      </div>
-    </div>
   );
 }
