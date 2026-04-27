@@ -47,7 +47,7 @@ export default function LoginPage() {
           {/* Login panel */}
           <form
             onSubmit={handleLogin}
-            className="rounded-[2rem] border border-white/10 bg-black/45 p-6 shadow-2xl backdrop-blur-xl"
+            className="rounded-[2rem] bg-black/20 p-6 shadow-2xl backdrop-blur-sm"
           >
             <div className="grid gap-5 md:grid-cols-[1fr_1fr_auto] md:items-start">
               {/* Username */}
