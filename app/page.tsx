@@ -25,15 +25,6 @@ export default function LoginPage() {
       </div>
       <section className="relative z-10 flex min-h-screen flex-col items-center justify-center px-8">
         
-        {/* LOGO */}
-        <div className="mb-10 flex w-full justify-center">
-          <img
-            src="/logo.png"
-            alt="QRiosity Logo"
-            className="h-[360px] w-auto max-w-[760px] object-contain"
-          />
-        </div>
-
         {/* FORM */}
         <form onSubmit={handleLogin} className="w-full max-w-5xl">
           <div className="grid gap-6 md:grid-cols-[1fr_1fr_auto] md:items-start">
