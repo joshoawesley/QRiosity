@@ -1,1 +1,5 @@
-
+<img
+  src="/logo.png"
+  alt="QRiosity Logo"
+  className="mx-auto h-56 w-56 object-contain md:h-72 md:w-72"
+/>
